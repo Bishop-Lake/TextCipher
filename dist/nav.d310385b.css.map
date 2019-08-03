@@ -1,0 +1,1 @@
+{"version":3,"sources":["src\\src\\nav.less"],"names":[],"mappings":"AAAA;EACE,aAAA;EACA,8BAAA;EACA,iBAAA","file":"nav.d310385b.css","sourceRoot":"..","sourcesContent":[".nav-container {\n  display: flex;\n  justify-content: space-between;\n  background: green;\n}\n"]}

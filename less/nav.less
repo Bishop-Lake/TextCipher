@@ -1,0 +1,52 @@
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  background: steelblue;
+  height: 30px;
+  align-items: center;
+  padding: 20px;
+
+  span {
+    font-size: 25px;
+    text-shadow: 2px 2px 3px black;
+  }
+
+  nav {
+    a {
+      padding: 10px;
+      text-decoration: none;
+      color: white;
+      font-size: 25px;
+      text-shadow: 2px 2px 3px black;
+      transition: 1s;
+
+      &:hover {
+        font-size: 30px;
+      }
+    }
+  }
+
+}
+
+.second-nav {
+  float: right;
+  background: darken(steelblue, 3%);
+  height: 20px;
+  padding: 10px;
+  border-radius: 0px 0px 0px 15px;
+  nav {
+
+    a {
+      padding: 10px;
+      text-decoration: none;
+      color: white;
+      text-shadow: 2px 2px 3px black;
+      font-size: 18px;
+      &:first-child {
+        padding-left: 20px;
+      }
+    }
+  }
+}
+
+
