@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Parcel Sandbox</title>
+	<meta charset="UTF-8" />
+	<link rel='stylesheet' href="src/hue.less">
+</head>
+
+<body>
+	<div class="nav-container">
+		<nav>
+			<h2>Cipher</h2>
+			<a href="/index.html">Home</a>
+			<a href="/hexahue.html">Hexahue</a>
+			<a href="/glyph.html">Glyph</a>
+		</nav>
+	</div>
+
+	<h1 style="text-align:center;">Welcome To HueTranslate</h1>
+	<h4 style="text-align:center;">This site will translate text into a color coated cipher. 
+	Simply enter your desired text into the form below and hit translate to see the magic happen!</h4>
+	<br>
+	<div class="generated-translation">
+	<div class="character-container">
+	
+	</div>
+	</div>
+
+	<div class="new-image-wrapper">
+		<p>Here is your new generated Image!</p>
+		<div class="new-image">
+		</div>
+	</div>
+	<br>
+
+
+
+
+
+	<div class="input-area">
+	<div class='form'>
+	<textarea class="text-to-translate" cols="50" rows="5" type="text"></textarea>
+	<div class="controls">
+	<button class="translate" type="submit">Translate</button>
+	<button class="create-image" type="submit">Generate Image</button>
+	<input class="key-check" type="checkbox"><span>Display Translation Key</span>
+	</div>
+	</div>
+	<p>Alphanumberic's and the special characters: '<r>.</r>' , '<r>,</r>' and, '<r>?</r>' currently work, however any other symbols or tabs/returns will cause the translation to fail to render.</p>
+	<div>
+	
+</body>
+
+	<script src="src/index.js" async></script>
+
+</html>
