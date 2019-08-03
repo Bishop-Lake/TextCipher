@@ -1,3 +1,5 @@
+import domtoimage from "dom-to-image";
+
 const characterPallete = {
   a: ["magenta", "red", "lime", "yellow", "blue", "cyan"],
 
@@ -90,6 +92,7 @@ function drawCharacter(letter) {
   const cellFour = document.createElement("div");
   const cellFive = document.createElement("div");
   const cellSix = document.createElement("div");
+  const charKey = document.createElement("p");
 
   character.appendChild(cellOne);
   character.appendChild(cellTwo);
@@ -97,6 +100,9 @@ function drawCharacter(letter) {
   character.appendChild(cellFour);
   character.appendChild(cellFive);
   character.appendChild(cellSix);
+  if (document.querySelector(".key-check").checked === true) {
+    character.appendChild(charKey);
+  }
 
   cellOne.classList.add("pixel");
   cellTwo.classList.add("pixel");
@@ -104,6 +110,7 @@ function drawCharacter(letter) {
   cellFour.classList.add("pixel");
   cellFive.classList.add("pixel");
   cellSix.classList.add("pixel");
+  charKey.classList.add("key");
 
   cellOne.style.background = characterPallete[letter][0];
   cellTwo.style.background = characterPallete[letter][1];
@@ -111,11 +118,18 @@ function drawCharacter(letter) {
   cellFour.style.background = characterPallete[letter][3];
   cellFive.style.background = characterPallete[letter][4];
   cellSix.style.background = characterPallete[letter][5];
+  charKey.textContent = letter;
 
   return document.querySelector(".character-container").appendChild(character);
 }
 
-document.querySelector(".translate").addEventListener("click", () => {
+document
+  .querySelector(".translate")
+  .addEventListener("click", renderTranslation);
+
+function renderTranslation() {
+  document.querySelector(".new-image-wrapper").style.display = "none";
+  document.querySelector(".new-image").innerHTML = "";
   document.querySelector(".character-container").innerHTML = "";
   const stringToTranslate = document
     .querySelector(".text-to-translate")
@@ -124,4 +138,16 @@ document.querySelector(".translate").addEventListener("click", () => {
     .split("");
   stringToTranslate.forEach(char => drawCharacter(char));
   document.querySelector(".text-to-translate").value = "";
+}
+
+//create image from generated translation
+document.querySelector(".create-image").addEventListener("click", () => {
+  let preImg = document.querySelector(".generated-translation");
+  document.querySelector(".new-image").innerHTML = "";
+  domtoimage.toPng(preImg).then(function(dataUrl) {
+    let img = new Image();
+    img.src = dataUrl;
+    document.querySelector(".new-image-wrapper").style.display = "block";
+    document.querySelector(".new-image").appendChild(img);
+  });
 });
