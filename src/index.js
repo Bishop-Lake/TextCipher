@@ -142,7 +142,7 @@ function renderTranslation() {
 
 //create image from generated translation
 document.querySelector(".create-image").addEventListener("click", () => {
-  let preImg = document.querySelector(".generated-translation");
+  let preImg = document.querySelector(".character-container");
   document.querySelector(".new-image").innerHTML = "";
   domtoimage.toPng(preImg).then(function(dataUrl) {
     let img = new Image();
